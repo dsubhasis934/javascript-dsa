@@ -71,6 +71,34 @@ class bst {
             console.log(root.value)
         }
     }
+    bfs(root) {
+        let queue = [];
+        queue.push(root)
+        while (queue.length) {
+            let current = queue.shift();
+            if (current.left) {
+                queue.push(current.left)
+            }
+            if (current.right) {
+                queue.push(current.right)
+            }
+            console.log(current.value)
+        }
+    }
+    minValue(root) {
+        if (!root.left) {
+            return root.value
+        } else {
+            return this.minValue(root.left)
+        }
+    }
+    maxValue(root) {
+        if (!root.right) {
+            return root.value
+        } else {
+            return this.maxValue(root.right)
+        }
+    }
 }
 let b = new bst();
 b.addNode(10);
@@ -79,9 +107,14 @@ b.addNode(20)
 b.addNode(9)
 b.addNode(3)
 b.addNode(11)
-console.log(b)
+// console.log(b)
 // b.preOrder(b.root)
 // b.inOrder(b.root)
-b.postOrder(b.root)
+// b.postOrder(b.root)
+// b.bfs(b.root)
+// let a = b.minValue(b.root)
+// let x = b.maxValue(b.root)
+// console.log(x)
+
 // b.searchNode(b.root, 9)
 // console.log(b.searchNode(b.root, 3))
